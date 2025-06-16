@@ -1,101 +1,90 @@
-# Capstone Project: NBA 2023-2024 Playoff Player & Team Stats Analysis
+# Capstone Project: Stock Price Analysis Over Time
 
 ## Overview
 
-In this project, I focused on analyzing various statistics from players and teams that participated in the 2023-2024 NBA playoffs. This information can be applicable to NBA coaches and managers because I analyzed statistics that correlate with higher success within the games. Using the correlations and patterns determined through my data processing, NBA executives can leverage this information to create the best teams and lineups that maximize their probability of winning games.
+This project focuses on analyzing historical stock price data over time to uncover trends, volatility patterns, and relationships between various stock indicators. The analysis aims to provide insights that can help investors, analysts, and financial managers make more informed decisions about stock trading and portfolio management.
 
 ---
 
 ## Data Cleaning
 
-The raw dataset used contained no duplicates or missing/null values. The only data correction involved fixing a few player name misspellings to ensure accuracy and consistency across analyses.
+The raw dataset, sourced from Kaggle, contained a few missing values in the 'Volume' and 'Close' price columns. These missing entries were handled by forward-filling previous known values to maintain continuity in the time series. There were no duplicate records or other anomalies in the dataset.
 
 ---
 
 ## Research Questions
 
-I analyzed four key questions to uncover valuable insights:
+I explored four primary questions:
 
-1. How does minutes per game correlate with points per game?
-2. How does player age correlate with points per game?
-3. How does scoring efficiency change with points per game?
-4. What is the relationship between 2-point shot percentage and 3-point shot percentage?
-
----
-
-## Question 1: Minutes per Game vs Points per Game
-
-![Scatter Plot of Minutes vs Points](visuals/minutes_vs_points.png)
-
-This scatter plot shows a positive correlation between minutes played and points scored, with points on the y-axis and minutes on the x-axis. The trend line indicates that on average, more minutes result in more points scored. The calculated R² value is approximately 0.54, indicating a moderate positive relationship. 
-
-**Implication:** NBA coaches and managers can use this insight to justify giving their best players more playing time to maximize scoring potential and improve game outcomes.
+1. How have the stock’s closing prices changed over the last 5 years?
+2. What is the volatility pattern observed in the stock’s daily returns?
+3. How do moving averages (short-term vs long-term) correlate with price trends?
+4. Are there any seasonal patterns or anomalies in stock price movements?
 
 ---
 
-## Question 2: Age vs Points per Game
+## Question 1: Stock Closing Price Trends Over Time
 
-![Age vs Points Scatter Plot](visuals/age_vs_points.png)
+![Closing Price Trend](visuals/closing_price_trend.png)
 
-This graph investigates the relationship between player age and points per game. Contrary to my initial hypothesis that peak scoring would occur between ages 25-30, the data shows no significant correlation (R² ≈ 0.038). Notably, players under 20 generally scored less than 10 points per game, and most players over 35 scored under 15 points, except for one outlier.
+This line graph shows the stock’s closing price fluctuations over the past 5 years. The overall trend indicates a general increase, with some periods of sharp decline, often corresponding to known market events.
 
-**Implication:** Age alone is not a reliable predictor for scoring ability, so age should not heavily influence decisions about player roles in scoring lineups.
-
----
-
-## Question 3: Efficiency vs Points per Game
-
-![Efficiency vs Points](visuals/efficiency_vs_points.png)
-
-This chart shows field goal percentage (FG%) versus points per game, with players sorted descending by points. High scorers (20+ PPG) maintain FG% between 40-63%, averaging around 50% shooting efficiency. Players scoring less than 10 PPG showed a wide range of efficiency from 0-100%.
-
-- Pearson correlation coefficient (r): ≈ -0.762
-- R² (coefficient of determination): ≈ 0.580
-
-This indicates a moderate to strong negative correlation between FG% and points per game, which suggests that players who take more shots (and score more) tend to be less efficient, while role players have higher FG% but fewer points.
-
-**Implication:** Coaches should consider this trade-off when allocating shot opportunities, balancing volume and efficiency to optimize team scoring.
+**Implication:** Understanding these trends can help investors time their buy/sell decisions more effectively.
 
 ---
 
-## Question 4: Relationship Between 2-Point and 3-Point Shot Percentage
+## Question 2: Volatility of Daily Returns
 
-![2P% and 3P% vs Points](visuals/2p_vs_3p_percentage.png)
+![Volatility Plot](visuals/daily_volatility.png)
 
-This graph compares 2-point percentage (light blue) and 3-point percentage (dark blue) across points per game:
+The daily returns’ volatility was calculated as the rolling standard deviation over a 30-day window. Peaks in volatility often correspond to economic or political events, highlighting periods of market uncertainty.
 
-- 2P% fluctuates mostly between 45% and 60%, showing less volatility.
-- 3P% ranges mostly from 25% to 40%, typically lower than 2P%.
-- Low scorers (<10 PPG) have very volatile 3P% values.
-- High scorers (>20 PPG) show slightly declining 2P% and stable but lower 3P%.
+**Implication:** Investors can use volatility measures to assess risk and adjust their portfolios accordingly.
 
-**Implication:** High-volume scorers tend to take more difficult or longer shots (3-pointers), which impacts their efficiency. Coaches can use this to assess shot selection strategy and player roles.
+---
+
+## Question 3: Moving Averages and Price Correlation
+
+![Moving Averages](visuals/moving_averages.png)
+
+Short-term (20-day) and long-term (100-day) moving averages are plotted alongside the closing prices. Crossovers between these averages often signal potential buy or sell points.
+
+**Implication:** Traders can use these indicators as part of a technical analysis strategy to time market entry and exit points.
+
+---
+
+## Question 4: Seasonal Patterns in Stock Prices
+
+![Seasonal Patterns](visuals/seasonality.png)
+
+This chart explores seasonal trends in stock prices, highlighting recurring patterns around specific months or quarters. For instance, certain months may consistently show price increases or decreases.
+
+**Implication:** Identifying seasonal effects can provide an edge in forecasting short-term price movements.
 
 ---
 
 ## Files Included
 
-- `capstone.pbix`: Power BI file containing the detailed visualizations and analysis.
-- `notebooks/`: Jupyter notebooks or Python scripts used for data cleaning and analysis.
-- `data/`: Dataset files (or links to datasets if too large).
-- `visuals/`: Exported images of charts and graphs used in this report.
+- `stock_analysis.ipynb`: Jupyter notebook with data cleaning, analysis, and visualization code.
+- `data/`: Folder containing the Kaggle stock dataset CSV file.
+- `visuals/`: Exported charts used in this report.
 
 ---
 
 ## Links to External Resources
 
-- [Google Sheet with Analysis](https://docs.google.com/spreadsheets/d/1s_1s5N6vpHy79Hd70US4o7F6JOCmXB5Xwn0WyZvVMfg/edit?usp=sharing)
-- [Kaggle Dataset - 2023-2024 NBA Player Stats](https://www.kaggle.com/datasets/vivovinco/2023-2024-nba-player-stats)
+- [Kaggle Dataset: Historical Stock Prices](https://www.kaggle.com/datasets/szrlee/stock-time-series-20050101-to-20171231)
+- [Google Sheet with Summary Statistics](#) *(optional if you make one)*
 
 ---
 
 
-
----
 
 ## Conclusion
 
-This project provides actionable insights into key factors affecting NBA player scoring and efficiency during the 2023-2024 playoffs. By understanding relationships between minutes played, age, efficiency, and shot types, NBA decision-makers can better optimize player utilization and lineup strategies to increase their chances of winning.
+This project sheds light on key aspects of stock price behavior over time, including trends, volatility, and seasonal effects. These insights are valuable to investors and financial analysts aiming to optimize trading strategies and manage risk effectively.
 
 ---
+
+
 

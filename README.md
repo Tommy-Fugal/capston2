@@ -1,99 +1,101 @@
-# 🏀 NBA Stats Capstone Project: Data-Driven Insights from the Court
+# Capstone Project: NBA 2023-2024 Playoff Player & Team Stats Analysis
 
-## 📌 Project Overview
+## Overview
 
-This capstone project explores professional basketball trends using NBA datasets to uncover insights into team performance, player efficiency, and playoff outcomes. The goal is to showcase my skills in data cleaning, analysis, visualization, and storytelling using Power BI and Python.
-
-**Dataset Source:** [NBA Stats from Kaggle](https://www.kaggle.com/datasets)  
-**Tools Used:** Power BI, Python, Pandas, Matplotlib, Power Query  
-**Repository Contents:**
-- 📁 `data/`: Cleaned and raw datasets
-- 📁 `visualizations/`: Screenshots of Power BI dashboards
-- 📄 `NBA_Capstone.pbix`: Power BI project file
-- 📄 `README.md`: This report
+In this project, I focused on analyzing various statistics from players and teams that participated in the 2023-2024 NBA playoffs. This information can be applicable to NBA coaches and managers because I analyzed statistics that correlate with higher success within the games. Using the correlations and patterns determined through my data processing, NBA executives can leverage this information to create the best teams and lineups that maximize their probability of winning games.
 
 ---
 
-## 🎯 Problem Statement
+## Data Cleaning
 
-In an era where sports franchises are increasingly driven by data, the ability to analyze performance metrics is critical to understanding what leads to victory. This project addresses several business questions:
-
-1. What statistical categories most strongly correlate with team success in the regular season and playoffs?
-2. How do player performance metrics differ between the regular season and the playoffs?
-3. What trends can be observed in team efficiency and win rates over the past two decades?
-
-The goal is to provide actionable insights that could theoretically help coaches, analysts, or sports fans interpret what drives NBA team success.
+The raw dataset used contained no duplicates or missing/null values. The only data correction involved fixing a few player name misspellings to ensure accuracy and consistency across analyses.
 
 ---
 
-## 🧹 Data Cleaning
+## Research Questions
 
-Three primary datasets were used:
-- `Regular.csv` – Player stats for the 2023–24 regular season
-- `Playoffs.csv` – Player stats for the 2023–24 playoffs
-- `WL_playoff_total.csv`, `pergame_stats_total.csv`, and `advanced_stats_total.csv` – Team performance data from 2000–2023
+I analyzed four key questions to uncover valuable insights:
 
-**Cleaning Steps:**
-- Removed nulls and duplicate rows
-- Standardized column names (e.g., `FG%`, `3P%`, etc.)
-- Filtered out players with minimal minutes played to focus on key contributors
-- Merged datasets where necessary (e.g., team stats with playoff win/loss data)
-- Created calculated columns in Power BI (e.g., `True Shooting %`, `Offensive Rating`)
-- Verified consistency in player/team names across datasets
-
-All transformations were documented within Power Query for reproducibility.
+1. How does minutes per game correlate with points per game?
+2. How does player age correlate with points per game?
+3. How does scoring efficiency change with points per game?
+4. What is the relationship between 2-point shot percentage and 3-point shot percentage?
 
 ---
 
-## 📊 Exploratory and Final Analysis
+## Question 1: Minutes per Game vs Points per Game
 
-### Key Analytical Techniques:
-- **Trend Analysis:** Team win rates and offensive/defensive efficiencies from 2000–2023
-- **Comparative Analysis:** Regular season vs. playoff stats for top 50 players by minutes
-- **Correlation Analysis:** Offensive metrics vs. team win percentage
-- **Advanced Metrics:** Used PER, TS%, eFG%, and advanced team ratings
+![Scatter Plot of Minutes vs Points](visuals/minutes_vs_points.png)
 
-### Key Insights:
-- **Regular Season vs. Playoffs:** On average, scoring efficiency (TS%) decreases in the playoffs due to tighter defense.
-- **Team Success:** Strong positive correlation between `Offensive Rating` and `Win%` (r ≈ 0.75).
-- **Championship Trends:** Teams that won titles consistently ranked top 5 in both `Net Rating` and `Assist %`.
-- **Evolution Over Time:** The average `3P Attempt Rate` has tripled since 2000, drastically changing play style.
+This scatter plot shows a positive correlation between minutes played and points scored, with points on the y-axis and minutes on the x-axis. The trend line indicates that on average, more minutes result in more points scored. The calculated R² value is approximately 0.54, indicating a moderate positive relationship. 
 
-Visualizations in Power BI highlighted these findings through interactive dashboards including slicers, bar charts, scatterplots, and heatmaps.
+**Implication:** NBA coaches and managers can use this insight to justify giving their best players more playing time to maximize scoring potential and improve game outcomes.
 
 ---
 
-## 📈 Visualizations
+## Question 2: Age vs Points per Game
 
-Key visuals included in the Power BI report:
-- **Player Efficiency Comparison**: Heatmap comparing regular season and playoff performance
-- **Team Trends Dashboard**: Time-series visual of team ratings and win percentages
-- **Correlation Matrix**: Visual representation of which metrics best predict playoff success
-- **Champion Profile**: Aggregated stats of past NBA champions
+![Age vs Points Scatter Plot](visuals/age_vs_points.png)
 
-See the `/visualizations/` folder for static examples of these dashboards.
+This graph investigates the relationship between player age and points per game. Contrary to my initial hypothesis that peak scoring would occur between ages 25-30, the data shows no significant correlation (R² ≈ 0.038). Notably, players under 20 generally scored less than 10 points per game, and most players over 35 scored under 15 points, except for one outlier.
+
+**Implication:** Age alone is not a reliable predictor for scoring ability, so age should not heavily influence decisions about player roles in scoring lineups.
 
 ---
 
-## 🧠 Conclusion
+## Question 3: Efficiency vs Points per Game
 
-The data analysis revealed that while individual scoring is important, team success relies more on efficient ball movement, strong defense, and shooting consistency. The growing influence of 3-point shooting continues to reshape the NBA landscape.
+![Efficiency vs Points](visuals/efficiency_vs_points.png)
 
-This project demonstrates how data analytics can illuminate key insights that might otherwise go unnoticed. If expanded, the next phase might involve:
-- Incorporating player tracking or shot location data
-- Predictive modeling for future playoff success
-- Natural Language Processing to analyze commentary or player sentiment
+This chart shows field goal percentage (FG%) versus points per game, with players sorted descending by points. High scorers (20+ PPG) maintain FG% between 40-63%, averaging around 50% shooting efficiency. Players scoring less than 10 PPG showed a wide range of efficiency from 0-100%.
 
----
+- Pearson correlation coefficient (r): ≈ -0.762
+- R² (coefficient of determination): ≈ 0.580
 
-## 🧰 How to Use This Repository
+This indicates a moderate to strong negative correlation between FG% and points per game, which suggests that players who take more shots (and score more) tend to be less efficient, while role players have higher FG% but fewer points.
 
-1. Clone the repository or download it as a ZIP.
-2. Open `NBA_Capstone.pbix` in Power BI Desktop to explore dashboards.
-3. Review the `/data/` folder for CSV files.
-4. View dashboards in the `/visualizations/` folder if Power BI is not installed.
+**Implication:** Coaches should consider this trade-off when allocating shot opportunities, balancing volume and efficiency to optimize team scoring.
 
 ---
 
-## 📂 Files & Structure
+## Question 4: Relationship Between 2-Point and 3-Point Shot Percentage
+
+![2P% and 3P% vs Points](visuals/2p_vs_3p_percentage.png)
+
+This graph compares 2-point percentage (light blue) and 3-point percentage (dark blue) across points per game:
+
+- 2P% fluctuates mostly between 45% and 60%, showing less volatility.
+- 3P% ranges mostly from 25% to 40%, typically lower than 2P%.
+- Low scorers (<10 PPG) have very volatile 3P% values.
+- High scorers (>20 PPG) show slightly declining 2P% and stable but lower 3P%.
+
+**Implication:** High-volume scorers tend to take more difficult or longer shots (3-pointers), which impacts their efficiency. Coaches can use this to assess shot selection strategy and player roles.
+
+---
+
+## Files Included
+
+- `capstone.pbix`: Power BI file containing the detailed visualizations and analysis.
+- `notebooks/`: Jupyter notebooks or Python scripts used for data cleaning and analysis.
+- `data/`: Dataset files (or links to datasets if too large).
+- `visuals/`: Exported images of charts and graphs used in this report.
+
+---
+
+## Links to External Resources
+
+- [Google Sheet with Analysis](https://docs.google.com/spreadsheets/d/1s_1s5N6vpHy79Hd70US4o7F6JOCmXB5Xwn0WyZvVMfg/edit?usp=sharing)
+- [Kaggle Dataset - 2023-2024 NBA Player Stats](https://www.kaggle.com/datasets/vivovinco/2023-2024-nba-player-stats)
+
+---
+
+
+
+---
+
+## Conclusion
+
+This project provides actionable insights into key factors affecting NBA player scoring and efficiency during the 2023-2024 playoffs. By understanding relationships between minutes played, age, efficiency, and shot types, NBA decision-makers can better optimize player utilization and lineup strategies to increase their chances of winning.
+
+---
 

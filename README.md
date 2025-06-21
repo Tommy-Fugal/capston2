@@ -18,6 +18,8 @@ In this report, we answer the following three questions using historical AAPL da
 
 ### 📊 Chart Overview
 
+![Screenshot](https://github.com/Tommy-Fugal/capston2/blob/main/Q1.png)
+
 The first chart is a **line graph** showing the **sum of daily volatility** over the course of a month (August). Daily volatility was calculated using the formula:
 
 ```

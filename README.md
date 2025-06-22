@@ -60,6 +60,8 @@ The observed spikes in volatility are not random — they likely align with **ke
 
 ### 📊 Chart Overview
 
+![Screenshot](https://github.com/Tommy-Fugal/capston2/blob/main/Q2.png)
+
 The second chart is a **scatter plot** comparing **trading volume (X-axis)** with **closing price (Y-axis)**. Each dot represents a trading day, and a **trendline** has been added to show the correlation.
 
 ### 🔍 Key Findings
@@ -95,6 +97,8 @@ There is a significant inverse relationship between Apple’s volume and closing
 ## 📊 3. What is the overall trend in price over time?
 
 ### 📊 Chart Overview
+
+![Screenshot](https://github.com/Tommy-Fugal/capston2/blob/main/Q3.png)
 
 The third chart displays the **30-Day Rolling Average Closing Price** of AAPL stock from **2006 to 2017**. This smooths out short-term fluctuations and highlights longer-term trends in the stock price.
 
